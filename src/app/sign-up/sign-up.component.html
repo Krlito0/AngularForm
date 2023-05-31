@@ -4,18 +4,20 @@
     <p>invalid : {{krlitoForm.invalid}}</p> -->
     <div>
         <label for="fName">First Name : </label>
-        <input type="text" id="fName" name="fName" #firstN="ngModel" [(ngModel)]="model.firstName" minlength="3" required>
+        <input type="text" id="fName" name="fName" #firstN="ngModel" [(ngModel)]="model.firstName" minlength="3" maxlength="15" required>
         <span *ngIf="firstN.errors && krlitoForm.submitted" class="invalid">
             <p *ngIf="firstN.errors?.['required']">Enter a First name</p>
             <p *ngIf="firstN.errors?.['minlength']">Enter minimum 3 characters</p>
+            <p *ngIf="firstN.errors?.['maxlength']"> Enter maximum 15 characters</p>
         </span>
     </div>
     <div>
         <label for="lName">Last Name : </label>
-        <input type="text" id="lName" name="lName" #lastN="ngModel" [(ngModel)]="model.lastName" minlength="3" required>
+        <input type="text" id="lName" name="lName" #lastN="ngModel" [(ngModel)]="model.lastName" minlength="3" maxlength="15" required>
         <span *ngIf="lastN.errors && krlitoForm.submitted" class="invalid">
             <p *ngIf="lastN.errors?.['required']">Enter a Last name</p>
-            <p *ngIf="lastN.errors?.['minlength']">Enter mi nimum 3 characters</p>
+            <p *ngIf="lastN.errors?.['minlength']">Enter minimum 3 characters</p>
+            <p *ngIf="lastN.errors?.['maxlength']"> Enter maximum 15 characters</p>
         </span>
     </div>   
     <div>
